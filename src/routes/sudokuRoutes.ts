@@ -2,12 +2,8 @@ import { Router, Request, Response } from "express";
 import SudokuController from '../controllers/sudokuController';
 
 const router = Router();
+const controller = new SudokuController();
 
-router.get("/sudoku", (req: Request, res: Response) => {
-  const controller = new SudokuController();
-  const solution = controller.solve(req, res);
-
-  res.json({ solution });
-});
+router.get("/sudoku", controller.solve);
 
 export default router;

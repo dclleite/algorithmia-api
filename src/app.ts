@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import nQueenRoutes from './routes/nQueenRoutes';
 import sudokuRoutes from './routes/sudokuRoutes';
+import mazeRoutes from './routes/mazeRoutes';
 
 class App {
   public app: Application;
@@ -17,6 +18,7 @@ class App {
     this.app.use(cors());
     this.app.use('/api', nQueenRoutes);
     this.app.use('/api', sudokuRoutes);
+    this.app.use('/api', mazeRoutes);
   }
 }
 
