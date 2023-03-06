@@ -13,7 +13,7 @@ class NQueenController {
     const solver = new NQueensSolver(n);
     const solution = solver.solve();
 
-    res.send(solution);
+    res.send({ solution });
   }
 }
 
