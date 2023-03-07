@@ -4,7 +4,8 @@ import Sudoku from "../models/sudokuSolver";
 class SudokuController {
   public solve(req: Request, res: Response) {
     try {
-      const board = req.body.board;
+      const board = (req.query.board as any[] || []).map((row)=> row.map(Number))
+
       const sudoku = new Sudoku(board);
 
       if (sudoku.solve()) {

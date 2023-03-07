@@ -24,7 +24,7 @@ class MazeSolver {
   }
 
   public solveMaze(): boolean {
-    if (this.solveMazeUtil(0, 0) === false) {
+    if (!this.maze?.length || this.solveMazeUtil(0, 0) === false) {
       return false;
     }
     this.printSolution();

@@ -6,6 +6,8 @@ class SudokuSolver {
   }
 
   public solve(): boolean {
+    if(!this.board?.length) return false
+    
     const emptyCell = this.findEmptyCell();
     if (!emptyCell) {
       return true;

@@ -4,7 +4,8 @@ import MazeSolver from '../models/mazeSolver';
 class MazeSolverController {
   public async solve(req: Request, res: Response): Promise<Response> {
     try {
-      const maze = req.body.maze;
+      const maze = (req.query.maze as any[] || []).map((row)=> row.map(Number))
+
       const mazeSolver = new MazeSolver(maze);
       const hasSolution = mazeSolver.solveMaze();
       if (!hasSolution) {
